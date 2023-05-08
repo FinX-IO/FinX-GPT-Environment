@@ -1,8 +1,7 @@
 version: "3.9"
 networks:
     default:
-        external:
-          name: autogpt-network
+        name: autogpt-network
 services:
   redis-stack:
     hostname: redis-finx
