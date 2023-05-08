@@ -26,10 +26,10 @@ class BaseOpenAIPlugin(AutoGPTPluginTemplate):
         self._openapi_spec = manifests_specs_clients["openapi_spec"]
 
     def can_handle_on_response(self) -> bool:
-        """This method is called to check that the plugin can
+        """This method is called to check that the plugins can
         handle the on_response method.
         Returns:
-            bool: True if the plugin can handle the on_response method."""
+            bool: True if the plugins can handle the on_response method."""
         return False
 
     def on_response(self, response: str, *args, **kwargs) -> str:
@@ -37,10 +37,10 @@ class BaseOpenAIPlugin(AutoGPTPluginTemplate):
         return response
 
     def can_handle_post_prompt(self) -> bool:
-        """This method is called to check that the plugin can
+        """This method is called to check that the plugins can
         handle the post_prompt method.
         Returns:
-            bool: True if the plugin can handle the post_prompt method."""
+            bool: True if the plugins can handle the post_prompt method."""
         return False
 
     def post_prompt(self, prompt: PromptGenerator) -> PromptGenerator:
@@ -54,10 +54,10 @@ class BaseOpenAIPlugin(AutoGPTPluginTemplate):
         return prompt
 
     def can_handle_on_planning(self) -> bool:
-        """This method is called to check that the plugin can
+        """This method is called to check that the plugins can
         handle the on_planning method.
         Returns:
-            bool: True if the plugin can handle the on_planning method."""
+            bool: True if the plugins can handle the on_planning method."""
         return False
 
     def on_planning(
@@ -71,10 +71,10 @@ class BaseOpenAIPlugin(AutoGPTPluginTemplate):
         pass
 
     def can_handle_post_planning(self) -> bool:
-        """This method is called to check that the plugin can
+        """This method is called to check that the plugins can
         handle the post_planning method.
         Returns:
-            bool: True if the plugin can handle the post_planning method."""
+            bool: True if the plugins can handle the post_planning method."""
         return False
 
     def post_planning(self, response: str) -> str:
@@ -87,10 +87,10 @@ class BaseOpenAIPlugin(AutoGPTPluginTemplate):
         return response
 
     def can_handle_pre_instruction(self) -> bool:
-        """This method is called to check that the plugin can
+        """This method is called to check that the plugins can
         handle the pre_instruction method.
         Returns:
-            bool: True if the plugin can handle the pre_instruction method."""
+            bool: True if the plugins can handle the pre_instruction method."""
         return False
 
     def pre_instruction(self, messages: List[Message]) -> List[Message]:
@@ -103,10 +103,10 @@ class BaseOpenAIPlugin(AutoGPTPluginTemplate):
         return messages
 
     def can_handle_on_instruction(self) -> bool:
-        """This method is called to check that the plugin can
+        """This method is called to check that the plugins can
         handle the on_instruction method.
         Returns:
-            bool: True if the plugin can handle the on_instruction method."""
+            bool: True if the plugins can handle the on_instruction method."""
         return False
 
     def on_instruction(self, messages: List[Message]) -> Optional[str]:
@@ -119,10 +119,10 @@ class BaseOpenAIPlugin(AutoGPTPluginTemplate):
         pass
 
     def can_handle_post_instruction(self) -> bool:
-        """This method is called to check that the plugin can
+        """This method is called to check that the plugins can
         handle the post_instruction method.
         Returns:
-            bool: True if the plugin can handle the post_instruction method."""
+            bool: True if the plugins can handle the post_instruction method."""
         return False
 
     def post_instruction(self, response: str) -> str:
@@ -135,10 +135,10 @@ class BaseOpenAIPlugin(AutoGPTPluginTemplate):
         return response
 
     def can_handle_pre_command(self) -> bool:
-        """This method is called to check that the plugin can
+        """This method is called to check that the plugins can
         handle the pre_command method.
         Returns:
-            bool: True if the plugin can handle the pre_command method."""
+            bool: True if the plugins can handle the pre_command method."""
         return False
 
     def pre_command(
@@ -154,10 +154,10 @@ class BaseOpenAIPlugin(AutoGPTPluginTemplate):
         return command_name, arguments
 
     def can_handle_post_command(self) -> bool:
-        """This method is called to check that the plugin can
+        """This method is called to check that the plugins can
         handle the post_command method.
         Returns:
-            bool: True if the plugin can handle the post_command method."""
+            bool: True if the plugins can handle the post_command method."""
         return False
 
     def post_command(self, command_name: str, response: str) -> str:
@@ -173,7 +173,7 @@ class BaseOpenAIPlugin(AutoGPTPluginTemplate):
     def can_handle_chat_completion(
         self, messages: Dict[Any, Any], model: str, temperature: float, max_tokens: int
     ) -> bool:
-        """This method is called to check that the plugin can
+        """This method is called to check that the plugins can
           handle the chat_completion method.
         Args:
             messages (List[Message]): The messages.
@@ -181,7 +181,7 @@ class BaseOpenAIPlugin(AutoGPTPluginTemplate):
             temperature (float): The temperature.
             max_tokens (int): The max tokens.
           Returns:
-              bool: True if the plugin can handle the chat_completion method."""
+              bool: True if the plugins can handle the chat_completion method."""
         return False
 
     def handle_chat_completion(
