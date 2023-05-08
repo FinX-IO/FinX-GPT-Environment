@@ -55,10 +55,10 @@ An Off-the-Shelf Auto-GPT environment, ready configured with the FinX Auto-GPT p
     sudo docker-compose up -d
     ```
    
-5. Run the application startup script RUN_FINX_GPT.sh to start a single Auto-GPT container named 'finx-gpt'
+5. Run the application startup script 'scripts/run_finx_gpt.sh' to start a single Auto-GPT container named 'finx-gpt'
 
     ```bash
-    ./RUN_FINX_GPT.sh finx-gpt
+    ./scripts/run_finx_gpt.sh finx-gpt
     ```
    note that if you want to run a second container then just choose a container name other than 'finx-gpt'
 
