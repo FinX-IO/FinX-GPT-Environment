@@ -4,7 +4,7 @@ networks:
         name: autogpt-network
 services:
   redis-stack:
-    hostname: redis-finx
+    hostname: redis
     container_name: redis
     image: redis/redis-stack:latest
     command: redis-server /usr/local/etc/redis/redis.conf
