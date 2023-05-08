@@ -44,6 +44,9 @@ An Off-the-Shelf Auto-GPT environment, ready configured with the FinX Auto-GPT p
     echo "FINX_API_KEY={my_finx_api_key}" > FinX.env
     echo "FINX_REGISTERED_EMAIL={my_finx_registered_email}" >> FinX.env
     echo "FINX_WORKSPACE={my_finx_workspace_path_relative_to_Auto-GPT_workspace}" >> FinX.env
+    echo "OPENAI_API_KEY={my_openai_api_key}" >> FinX.env
+    echo "GOOGLE_API_KEY={my_google_api_key}" >> FinX.env
+    echo "CUSTOM_SEARCH_ENGINE_ID={my_custom_search_engine_id}" >> FinX.env
     ```
    
 4. Run the docker-compose up command in headless mode (spools up a Redis container named 'redis-finx')
