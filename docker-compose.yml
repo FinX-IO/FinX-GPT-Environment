@@ -6,8 +6,8 @@ services:
   redis-stack:
     hostname: redis
     container_name: redis
-    image: redis/redis-stack:latest
-    command: redis-server /usr/local/etc/redis/redis.conf
+    image: redis/redis-stack-server:latest
+    command: redis-stack-server /usr/local/etc/redis/redis.conf
     restart: always
     volumes:
       - ./redis.conf:/usr/local/etc/redis/redis.conf
