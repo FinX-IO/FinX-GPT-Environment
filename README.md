@@ -38,29 +38,43 @@ An Off-the-Shelf Auto-GPT environment, ready configured with the FinX Auto-GPT p
     cd ~/FinX-GPT-Environment
     ```
    
-3. Create a file called FinX.env and populate it with your FinX API Key and FinX Registered Email. The file should be located in '~/FinX-GPT-Environment/FinX.env'
+3. Edit the file called 'my-auto-gpt-env.txt' and populate it with your OpenAI Key, your Redis information, FinX API Key 
+   and FinX Registered Email. This file will be copied in the Docker container as the .env file for Auto-GPT. Therefore 
+   do not commit this file to a repository.  Edit this file before you launch your container.
 
     ```bash
-    echo "FINX_API_KEY={my_finx_api_key}" > FinX.env
-    echo "FINX_REGISTERED_EMAIL={my_finx_registered_email}" >> FinX.env
-    echo "FINX_WORKSPACE={my_finx_workspace_path_relative_to_Auto-GPT_workspace}" >> FinX.env
-    echo "OPENAI_API_KEY={my_openai_api_key}" >> FinX.env
-    echo "GOOGLE_API_KEY={my_google_api_key}" >> FinX.env
-    echo "CUSTOM_SEARCH_ENGINE_ID={my_custom_search_engine_id}" >> FinX.env
+   FINX_API_KEY=
+   FINX_REGISTERED_EMAIL=
+   FINX_WORKSPACE=finx
+   ALLOWLISTED_PLUGINS=Finxgpt
+   GOOGLE_API_KEY=
+   CUSTOM_SEARCH_ENGINE_ID=
+   GITHUB_API_KEY=
+   GITHUB_USERNAME=
+   REDIS_HOST=redis
+   REDIS_PORT=6379
+   REDIS_PASSWORD=""
+   WIPE_REDIS_ON_START=FALSE
+   MEMORY_BACKEND=redis
+   MEMORY_INDEX=auto-gpt
+   SMART_LLM_MODEL=gpt-3.5-turbo
+   FAST_LLM_MODEL=gpt-3.5-turbo
+   OPENAI_API_KEY=
+   EXECUTE_LOCAL_COMMANDS=True
+   RESTRICT_TO_WORKSPACE=True
     ```
    
-4. Run the docker-compose up command in headless mode (spools up a Redis container named 'redis-finx')
+4. Navigate to the FinX-GPT-Environment directory and build the Docker image after you edit the my-auto-gpt-env.txt file.
 
     ```bash
-    sudo docker-compose up -d
+    sudo docker build -t finx-gpt .
     ```
    
-5. Run the application startup script 'scripts/run_finx_gpt.sh' to start a single Auto-GPT container named 'finx-gpt'
+5. Run the Docker image with the following command:
 
     ```bash
-    ./scripts/run_finx_gpt.sh finx-gpt
+    sudo docker run -it finx-gpt
     ```
-   note that if you want to run a second container then just choose a container name other than 'finx-gpt'
 
    The script will start an Agent instance at the command prompt for you to use.
 
