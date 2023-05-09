@@ -44,9 +44,9 @@ RUN python3 -m pip install --upgrade pip
 RUN wget 'https://github.com/Significant-Gravitas/Auto-GPT/archive/refs/heads/master.zip' -O /home/appuser/Auto-GPT.zip
 RUN unzip /home/appuser/Auto-GPT.zip -d /home/appuser/
 RUN mkdir /home/appuser/Auto-GPT-master/autogpt/plugins
-COPY plugins/Finxgpt.zip /home/appuser/Auto-GPT-master/autogpt/plugins/Finxgpt.zip
 WORKDIR /home/appuser/Auto-GPT-master
 COPY my-auto-gpt-env.txt /home/appuser/Auto-GPT-master/.env
+COPY plugins/Finxgpt.zip /home/appuser/Auto-GPT-master/plugins/Finxgpt.zip
 
 # Set the entrypoint
 ENTRYPOINT ["python", "-m", "autogpt"]
