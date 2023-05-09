@@ -37,7 +37,7 @@ RUN sed -i '/Items below this point will not be included in the Docker Image/,$d
 ## Copy the plugin files
 #COPY --chown=appuser:appuser plugins/ ./plugins
 #
-RUN git clone git@github.com:FinX-IO/Auto-GPT-FinX-Plugin
+RUN wget 'https://github.com/FinX-IO/Auto-GPT-FinX-Plugin.git' -O /home/appuser/Auto-GPT-FinX-Plugin
 RUN pip install -r /home/appuser/Auto-GPT-FinX-Plugin/requirements.txt
 RUN zip -r /home/appuser/Auto-GPT/autogpt/plugins/Finxgpt.zip /home/appuser/Auto-GPT-FinX-Plugin
 
