@@ -49,6 +49,7 @@ RUN unzip /home/appuser/Auto-GPT.zip -d /home/appuser/
 RUN mkdir /home/appuser/Auto-GPT-master/autogpt/plugins
 RUN gzip -r /home/appuser/Auto-GPT-FinX-Plugin-main > /home/appuser/Auto-GPT-master/autogpt/plugins/Finxgpt.gz
 WORKDIR /home/appuser/Auto-GPT-master
+COPY my-auto-gpt-env.txt /home/appuser/Auto-GPT-master/.env
 
 # Set the entrypoint
 ENTRYPOINT ["python", "-m", "autogpt"]
