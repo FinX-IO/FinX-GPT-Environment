@@ -73,7 +73,7 @@ An Off-the-Shelf Auto-GPT environment, ready configured with the FinX Auto-GPT p
 5. Run the Docker image with the following command:
 
     ```bash
-    sudo docker run -it finx-gpt
+    sudo docker run -it --network auto-gpt_default finx-gpt
     ```
 
    The script will start an Agent instance at the command prompt for you to use.
