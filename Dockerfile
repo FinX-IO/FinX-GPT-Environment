@@ -45,7 +45,7 @@ RUN unzip /home/appuser/Finxgpt.zip
 RUN python3 -m pip install -r Auto-GPT-FinX-Plugin-main/requirements.txt
 RUN wget 'https://github.com/Significant-Gravitas/Auto-GPT/archive/refs/heads/master.zip' -O /home/appuser/Auto-GPT.zip
 RUN unzip /home/appuser/Auto-GPT -d /home/appuser/
-RUN gzip -r /home/appuser/Auto-GPT-master/autogpt/plugins/Finxgpt.zip /home/appuser/Auto-GPT-FinX-Plugin
+RUN gzip -r /home/appuser/Auto-GPT-master/autogpt/plugins/Finxgpt.zip /home/appuser/Auto-GPT-FinX-Plugin-main
 
 # Set the entrypoint
 ENTRYPOINT ["python", "-m", "autogpt"]
