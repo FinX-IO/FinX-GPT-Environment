@@ -48,9 +48,7 @@ RUN wget 'https://github.com/Significant-Gravitas/Auto-GPT/archive/refs/heads/ma
 RUN unzip /home/appuser/Auto-GPT.zip -d /home/appuser/
 RUN mkdir /home/appuser/Auto-GPT-master/autogpt/plugins
 RUN gzip -r /home/appuser/Auto-GPT-FinX-Plugin-main > /home/appuser/Auto-GPT-master/autogpt/plugins/Finxgpt.gz
-WORKDIR /home/appuser/Auto-GPT-master
-RUN cd /home/appuser/Auto-GPT-master/autogpt
-
+WORKDIR /home/appuser/Auto-GPT-master/autogpt
 
 # Set the entrypoint
-ENTRYPOINT ["bash", "/home/appuser/Auto-GPT-master/run.sh", "--install-plugin-deps"]
+ENTRYPOINT ["python", "-m", "autogpt"]
