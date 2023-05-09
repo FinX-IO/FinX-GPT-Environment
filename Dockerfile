@@ -14,7 +14,8 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
     && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
     && apt-get update \
     && apt-get install -y chromium firefox-esr \
-    && apt-get install -y unzip
+    && apt-get install -y unzip \
+    && apt-get install -y pip
 
 # Set environment variables
 ENV PIP_NO_CACHE_DIR=yes \
@@ -41,8 +42,8 @@ RUN sed -i '/Items below this point will not be included in the Docker Image/,$d
 RUN python3 -m pip install --upgrade pip
 RUN wget 'https://github.com/FinX-IO/Auto-GPT-FinX-Plugin/archive/refs/heads/main.zip' -O /home/appuser/Finxgpt.zip
 RUN unzip /home/appuser/Finxgpt.zip
-RUN python3 -m pip install -r /home/appuser/Finxgpt/Auto-GPT-FinX-Plugin/requirements.txt
-RUN gzip -r /home/appuser/Auto-GPT/autogpt/plugins/Finxgpt.zip /home/appuser/Auto-GPT-FinX-Plugin
+RUN python3 -m pip install -r Auto-GPT-FinX-Plugin-main/requirements.txt
+RUN gzip -r /home/appuser/Auto-GPT/autogpt/plugins/Finxgpt.zip Auto-GPT-FinX-Plugin-main
 
 # Set the entrypoint
 ENTRYPOINT ["python", "-m", "autogpt"]
