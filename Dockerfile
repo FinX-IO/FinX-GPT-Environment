@@ -29,7 +29,7 @@ USER appuser
 # Copy the requirements.txt file and install the requirements
 COPY --chown=appuser:appuser requirements.txt .
 RUN sed -i '/Items below this point will not be included in the Docker Image/,$d' requirements.txt && \
-	pip install --no-cache-dir --user -r requirements.txt
+	python3 -m pip install --no-cache-dir --user -r requirements.txt
 
 ## Copy the application files
 #COPY --chown=appuser:appuser autogpt/ ./autogpt
@@ -39,7 +39,7 @@ RUN sed -i '/Items below this point will not be included in the Docker Image/,$d
 #
 RUN python3 -m pip install --upgrade pip
 RUN wget 'https://github.com/FinX-IO/Auto-GPT-FinX-Plugin.git' -O /home/appuser/Auto-GPT-FinX-Plugin
-RUN python3 -m pip install -r /home/appuser/Auto-GPT-FinX-Plugin
+RUN python3 -m pip install -r /home/appuser/Auto-GPT-FinX-Plugin/requirements.txt
 RUN zip -r /home/appuser/Auto-GPT/autogpt/plugins/Finxgpt.zip /home/appuser/Auto-GPT-FinX-Plugin
 
 # Set the entrypoint
