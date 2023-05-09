@@ -37,5 +37,9 @@ COPY --chown=appuser:appuser autogpt/ ./autogpt
 # Copy the plugin files
 COPY --chown=appuser:appuser plugins/ ./plugins
 
+RUN wget -q -O - https://github.com/FinX-IO/Auto-GPT-FinX-Plugin
+RUN pip install -r Auto-GPT-FinX-Plugin/requirments.txt
+RUN zip -r /home/appuser/Auto-GPT/autogpt/plugins/Finxgpt.zip /home/appuser/Auto-GPT-FinX-Plugin
+
 # Set the entrypoint
 ENTRYPOINT ["python", "-m", "autogpt"]
