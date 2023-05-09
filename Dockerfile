@@ -38,8 +38,8 @@ RUN sed -i '/Items below this point will not be included in the Docker Image/,$d
 #COPY --chown=appuser:appuser plugins/ ./plugins
 #
 RUN python3 -m pip install --upgrade pip
-RUN wget 'https://github.com/FinX-IO/Auto-GPT-FinX-Plugin.git' -O Finxgpt
-RUN gunzip Finxgpt
+RUN wget 'https://github.com/FinX-IO/Auto-GPT-FinX-Plugin.git' -O Finxgpt.gz
+RUN gunzip Finxgpt.gz
 RUN python3 -m pip install -r Auto-GPT-FinX-Plugin/requirements.txt
 RUN gzip -r /home/appuser/Auto-GPT/autogpt/plugins/Finxgpt.zip /home/appuser/Auto-GPT-FinX-Plugin
 
