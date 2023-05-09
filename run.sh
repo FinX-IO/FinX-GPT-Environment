@@ -15,7 +15,7 @@ function find_python_command() {
 
 PYTHON_CMD=$(find_python_command)
 
-$PYTHON_CMD scripts/check_requirements.py requirements.txt
+$PYTHON_CMD /home/appuser/Auto-GPT-master/scripts/check_requirements.py requirements.txt
 if [ $? -eq 1 ]
 then
     echo Installing missing packages...
