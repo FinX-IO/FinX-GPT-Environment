@@ -50,4 +50,4 @@ RUN mkdir /home/appuser/Auto-GPT-master/autogpt/plugins
 RUN gzip -r /home/appuser/Auto-GPT-FinX-Plugin-main > /home/appuser/Auto-GPT-master/autogpt/plugins/Finxgpt.gz
 
 # Set the entrypoint
-ENTRYPOINT ["bash", "run.sh", "--install-plugin-deps"]
+ENTRYPOINT ["bash", "/home/appuser/run.sh", "--install-plugin-deps"]
