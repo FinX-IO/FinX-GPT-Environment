@@ -42,12 +42,12 @@ RUN sed -i '/Items below this point will not be included in the Docker Image/,$d
 RUN cd /home/appuser
 RUN python3 -m pip install --upgrade pip
 RUN wget 'https://github.com/FinX-IO/Auto-GPT-FinX-Plugin/archive/refs/heads/main.zip' -O /home/appuser/Finxgpt.zip
-RUN unzip -r /home/appuser/Finxgpt.zip
+RUN unzip /home/appuser/Finxgpt.zip
 RUN python3 -m pip install -r Auto-GPT-FinX-Plugin-main/requirements.txt
 RUN wget 'https://github.com/Significant-Gravitas/Auto-GPT/archive/refs/heads/master.zip' -O /home/appuser/Auto-GPT.zip
-RUN unzip -r /home/appuser/Auto-GPT.zip -d /home/appuser/
+RUN unzip /home/appuser/Auto-GPT.zip -d /home/appuser/
 RUN mkdir /home/appuser/Auto-GPT-master/autogpt/plugins
-RUN gzip -r /home/appuser/Auto-GPT-master/autogpt/plugins/Finxgpt.zip /home/appuser/Auto-GPT-FinX-Plugin-main
+RUN gzip /home/appuser/Auto-GPT-master/autogpt/plugins/Finxgpt.zip /home/appuser/Auto-GPT-FinX-Plugin-main
 
 # Set the entrypoint
 ENTRYPOINT ["python", "-m", "autogpt"]
